@@ -1,0 +1,77 @@
+Trace(Complex):
+
+{trace}
+| ?- canget(state(atdoor,onfloor,atwindow,hasnot)).
+        
+1      1 Call: canget(state(atdoor,onfloor,atwindow,hasnot)) ? 
+        
+2      2 Call: move(state(atdoor,onfloor,atwindow,hasnot),_682,_686) ? 
+        
+2      2 Exit: move(state(atdoor,onfloor,atwindow,hasnot),walk(atdoor,_1041),state(_1041,onfloor,atwindow,hasnot)) ? 
+        
+3      2 Call: canget(state(_1041,onfloor,atwindow,hasnot)) ? 
+        
+4      3 Call: move(state(_1041,onfloor,atwindow,hasnot),_1752,_1756) ? 
+?       
+4      3 Exit: move(state(atwindow,onfloor,atwindow,hasnot),climb,state(atwindow,onbox,atwindow,hasnot)) ? 
+        
+5      3 Call: canget(state(atwindow,onbox,atwindow,hasnot)) ? 
+        
+6      4 Call: move(state(atwindow,onbox,atwindow,hasnot),_2817,_2821) ? 
+        
+6      4 Fail: move(state(atwindow,onbox,atwindow,hasnot),_2817,_2821) ? 
+        
+5      3 Fail: canget(state(atwindow,onbox,atwindow,hasnot)) ? 
+        
+4      3 Redo: move(state(atwindow,onfloor,atwindow,hasnot),climb,state(atwindow,onbox,atwindow,hasnot)) ? 
+?       
+4      3 Exit: move(state(atwindow,onfloor,atwindow,hasnot),push(atwindow,_2111),state(_2111,onfloor,_2111,hasnot)) ? 
+        
+7      3 Call: canget(state(_2111,onfloor,_2111,hasnot)) ? 
+        
+8      4 Call: move(state(_2111,onfloor,_2111,hasnot),_2825,_2829) ? 
+?       
+8      4 Exit: move(state(_2111,onfloor,_2111,hasnot),climb,state(_2111,onbox,_2111,hasnot)) ? 
+        
+9      4 Call: canget(state(_2111,onbox,_2111,hasnot)) ? 
+       
+10     5 Call: move(state(_2111,onbox,_2111,hasnot),_3890,_3894) ? 
+?      
+10     5 Exit: move(state(middle,onbox,middle,hasnot),grasp,state(middle,onbox,middle,has)) ? 
+       
+11     5 Call: canget(state(middle,onbox,middle,has)) ? 
+?      
+11     5 Exit: canget(state(middle,onbox,middle,has)) ? 
+?       
+9      4 Exit: canget(state(middle,onbox,middle,hasnot)) ? 
+?   
+
+Trace (Simple):
+
+{trace}
+| ?- canget(state(middle,onbox,middle,hasnot)).
+        
+1      1 Call: canget(state(middle,onbox,middle,hasnot)) ? 
+        
+2      2 Call: move(state(middle,onbox,middle,hasnot),_682,_686) ? 
+?       
+2      2 Exit: move(state(middle,onbox,middle,hasnot),grasp,state(middle,onbox,middle,has)) ? 
+        
+3      2 Call: canget(state(middle,onbox,middle,has)) ? 
+?       
+3      2 Exit: canget(state(middle,onbox,middle,has)) ? 
+?       
+1      1 Exit: canget(state(middle,onbox,middle,hasnot)) ? 
+
+yes
+{trace}
+    
+7      3 Exit: canget(state(middle,onfloor,middle,hasnot)) ? 
+?       
+3      2 Exit: canget(state(atwindow,onfloor,atwindow,hasnot)) ? 
+?       
+1      1 Exit: canget(state(atdoor,onfloor,atwindow,hasnot)) ? 
+
+
+yes
+{trace}
